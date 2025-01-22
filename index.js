@@ -9,6 +9,7 @@ const mongodbRoute = process.env.MONGODB_URI;
 //Comentario
 
 const characterRouter = require("./src/routes/characterRoutes")
+const timeRouter = require("./src/routes/timeRoutes")
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -17,6 +18,7 @@ const PORT = process.env.PORT || 3001;
 app.use(bodyParser.json());
 
 app.use("/api/characters", characterRouter);
+app.use("/api/time", timeRouter);
 
 //Populate all characters
 async function findAllCharacters() {
