@@ -1,0 +1,29 @@
+{
+  "name": "panic---time-slaughter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llabaka/2425-panic-time-slaughter-lander-labaka.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/llabaka/2425-panic-time-slaughter-lander-labaka/issues"
+  },
+  "homepage": "https://github.com/llabaka/2425-panic-time-slaughter-lander-labaka#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jest": "^29.7.0",
+    "mongoose": "^8.9.5",
+    "supertest": "^7.0.0"
+  }
+}
