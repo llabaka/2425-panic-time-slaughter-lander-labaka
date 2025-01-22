@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
+const Character = require('./src/models/characterModel');
 
 const mongodbRoute = process.env.MONGODB_URI;
 
@@ -10,12 +11,32 @@ const mongodbRoute = process.env.MONGODB_URI;
 const characterRouter = require("./src/routes/characterRoutes")
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Use body-parser para manejar datos JSON
 app.use(bodyParser.json());
 
-app.use("/api/characters", characterRouter)
+app.use("/api/characters", characterRouter);
+
+//Populate all characters
+async function findAllCharacters() {
+    try {
+        const characters = await Character.find()
+            .populate('equipment.saddlebag')
+            .populate('equipment.weapons')
+            .populate('equipment.pouch.precious_stones')
+            .exec();
+            // characters.forEach(character => {
+            //     console.log(character.equipment.weapons);
+            // });
+            console.log(characters);
+    } catch (err) {
+        console.error(err);
+    }
+
+}
+
+findAllCharacters();
 
 // Conexión con MongoDB y arrancar el servidor
 async function start() {

@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const weaponsModel = require('./weaponsModel');
+const saddlebagModel = require('./saddlebagModel');
+const preciousStonesModel = require('./preciousStonesModel');
 
 const { Schema } = mongoose;
 
@@ -14,13 +17,13 @@ const characterSchema = new Schema({
         stamina: Number
     },
     equipment: {
-        saddlebag: [ObjectId],
+        saddlebag: [{type: ObjectId, ref: saddlebagModel}],
         quiver: Number,
-        weapons: [ObjectId],
+        weapons: [{type: ObjectId, ref: weaponsModel}],
         pouch: {
             coins: Number,
             gold: Number,
-            precious_stones: [ObjectId]
+            precious_stones: [{type: ObjectId, ref: preciousStonesModel}]
         },
         miscellaneous: Array
     }
