@@ -4,6 +4,8 @@ const getAllCharacters = async (req, res) => {
     try {
         const allCharacters = await characterService.getAllCharacters();
         if (allCharacters.length === 0) {
+            console.log("NO HAY CHARACTERS");
+            
             return res.status(404).send({ message: "Characters don't exist" });
         }
         res.send({ status: "OK", data: allCharacters });
