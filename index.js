@@ -7,11 +7,15 @@ const mongodbRoute = process.env.MONGODB_URI;
 
 //Comentario
 
+const characterRouter = require("./src/routes/characterRoutes")
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Use body-parser para manejar datos JSON
 app.use(bodyParser.json());
+
+app.use("/api/characters", characterRouter)
 
 // Conexión con MongoDB y arrancar el servidor
 async function start() {
