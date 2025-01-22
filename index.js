@@ -38,7 +38,43 @@ async function findAllCharacters() {
 
 }
 
-findAllCharacters();
+async function gameCicle(){
+    const characters = await findAllCharacters();
+    await morning(characters);
+}
+
+async function morning(characters){
+    // console.log('-------------');
+
+    // const saddlebag = await saddlebagService.getAllSaddlebag();
+    // const preciousStones = await preciousStonesService.getAllPreciousStones();
+
+    // characters.map(character => {
+    //     const roll = die3.roll();
+        
+    //     switch(roll){
+    //         case 1:
+    //             console.log(`${character.name} roll: ${roll} and wins 2 points of strength`);
+    //             character.stats.strength += 2;
+    //             break;
+
+    //         case 2:
+    //             console.log(`${character.name} roll: ${roll} and wins 2 points of dexterity`);
+    //             character.stats.dexterity += 2;
+    //             break;
+
+    //         case 3:
+    //             console.log(`${character.name} roll: ${roll} and wins 1 points of strength and another of dexterity`);
+    //             character.stats.strength += 1;
+    //             character.stats.dexterity += 1;
+    //             break;
+    //     }
+    //     // recollet 
+    //     recollect(character, preciousStones, saddlebag);
+    //     console.log('-------------');
+    // });
+}
+
 
 // Conexión con MongoDB y arrancar el servidor
 async function start() {
@@ -55,4 +91,5 @@ async function start() {
     }
 }
 
+gameCicle();
 start();
