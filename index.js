@@ -10,6 +10,8 @@ const mongodbRoute = process.env.MONGODB_URI;
 
 const characterRouter = require("./src/routes/characterRoutes")
 const timeRouter = require("./src/routes/timeRoutes")
+const saddlebagService = require('./src/services/saddlebagService');
+const precious_stones = require('./src/services/stonesService');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -31,7 +33,7 @@ async function findAllCharacters() {
             // characters.forEach(character => {
             //     console.log(character.equipment.weapons);
             // });
-            console.log(characters);
+            //console.log(characters);
     } catch (err) {
         console.error(err);
     }
@@ -40,10 +42,17 @@ async function findAllCharacters() {
 
 async function gameCicle(){
     const characters = await findAllCharacters();
-    //await morning(characters);
+    await morning(characters);
 }
 
 
+async function morning(characters){
+    console.log("Morning");
+
+    const saddlebag = await saddlebagService.getAllSaddlebags();
+    const preciousStones = await precious_stones.getAllStones();
+
+}
 
 // Conexión con MongoDB y arrancar el servidor
 async function start() {
