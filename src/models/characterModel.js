@@ -25,7 +25,7 @@ const characterSchema = new Schema({
             gold: Number,
             precious_stones: [{type: ObjectId, ref: preciousStonesModel}]
         },
-        miscellaneous: Array
+        miscellaneous: [String]
     }
 })
 
