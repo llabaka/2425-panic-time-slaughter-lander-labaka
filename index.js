@@ -8,6 +8,7 @@ const mongodbRoute = process.env.MONGODB_URI;
 //Comentario
 
 const characterRouter = require("./src/routes/playerRoutes")
+const timeRouter = require("./src/routes/timeRoutes")
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,6 +17,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 app.use("/api/characters", characterRouter);
+app.use("/api/time", timeRouter);
 
 // Conexión con MongoDB y arrancar el servidor
 async function start() {

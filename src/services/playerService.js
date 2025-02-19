@@ -2,7 +2,7 @@ const Character = require("../models/characterModel");
 
 const getPlayers = async () => {
   try {
-    const players = Character.find()
+    const players = await Character.find()
       .populate('equipment.saddlebag')
       .populate('equipment.weapons')
       .populate('equipment.pouch.precious_stones')
