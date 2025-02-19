@@ -8,4 +8,4 @@ const stonesSchema = new Schema({
     value: Number,
 })
 
-module.exports = mongoose.model('Stones', stonesSchema);
+module.exports = mongoose.model('PreciousStone', stonesSchema);
