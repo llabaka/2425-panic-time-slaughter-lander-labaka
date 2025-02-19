@@ -1,14 +1,14 @@
-const characterService = require('../services/characterService');
+const playerService = require('../services/playerService');
 
-const getAllCharacters = async (req, res) => {
+const getAllPlayers = async (req, res) => {
     try {
-        const allCharacters = await characterService.getAllCharacters();
-        if (allCharacters.length === 0) {
+        const allPlayers = await playerService.getPlayers();
+        if (allPlayers.length === 0) {
             console.log("NO HAY CHARACTERS");
             
             return res.status(404).send({ message: "Characters don't exist" });
         }
-        res.send({ status: "OK", data: allCharacters });
+        res.send({ status: "OK", data: allPlayers });
     } catch (error) {
         res
             .status(error?.status || 500)
@@ -21,5 +21,5 @@ const getAllCharacters = async (req, res) => {
 }
 
 module.exports = {
-    getAllCharacters
+    getAllPlayers
 }
